@@ -10,9 +10,6 @@ Run
 go build -o bin/dockerlings ./cmd/dockerlings
 ./bin/dockerlings watch
 ```
-```
-```
-```
 
 ### Check your solutions with error messages
 
