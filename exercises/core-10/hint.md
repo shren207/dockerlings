@@ -1,14 +1,14 @@
-Here are the commands you'll need.
+다음은 필요한 명령어들입니다.
 
-1.  **To create a network:**
+1.  **network 생성:**
     ```bash
     docker network create c10-network
     ```
 
-2.  **To run a container on a specific network:**
-    Use the `--network` flag in your `docker run` command.
+2.  **특정 network에서 container 실행:**
+    `docker run` 명령어에서 `--network` 플래그를 사용합니다.
 
-    For the database container:
+    데이터베이스 container:
     ```bash
     docker run -d \
       --name c10-db \
@@ -17,7 +17,7 @@ Here are the commands you'll need.
       postgres:14-alpine
     ```
 
-    For the application container:
+    애플리케이션 container:
     ```bash
     docker run -d \
       --name c10-app \
@@ -25,4 +25,4 @@ Here are the commands you'll need.
       busybox sleep 3600
     ```
 
-Put these `docker run` commands into the `run-containers.sh` script.
+이 `docker run` 명령어들을 `run-containers.sh` 스크립트에 넣으세요.

@@ -1,17 +1,17 @@
-Use the following commands to complete the exercise:
+다음 명령어들을 사용하여 실습을 완료하세요:
 
-- **To build an image:**
+- **image를 빌드하려면:**
   `docker build -t <image-name> .`
 
-- **To run a container in detached mode:**
+- **container를 detached mode로 실행하려면:**
   `docker run -d --name <container-name> <image-name>`
 
-- **To get logs from a container:**
+- **container에서 로그를 가져오려면:**
   `docker logs <container-name>`
 
-- **To save output to a file (redirection):**
+- **출력을 파일로 저장하려면 (리다이렉션):**
   `docker logs <container-name> > logs.txt`
 
-Remember to stop and remove the container to keep your system clean:
+시스템을 깔끔하게 유지하려면 container를 중지하고 제거하세요:
 `docker stop <container-name>`
 `docker rm <container-name>`

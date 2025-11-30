@@ -1,5 +1,5 @@
 # Dockerlings
-**Learn Docker by doing – the fun, interactive way**
+**재미있고 인터랙티브한 방식으로 Docker 배우기 – 직접 해보면서 학습**
 
 ---
 
@@ -7,28 +7,28 @@
 
 ---
 
-- **100% interactive TUI** – Beautiful terminal interface powered by Bubble Tea  
-- **Instant verification** – Run `check` and know immediately if you're right  
-- **Progressive curriculum** – 15+ carefully crafted exercises that build on each other  
-- **Real-world skills** – From basic images to multi-stage builds, volumes, networks, and Compose  
-- **Zero friction** – Just clone, build, and start learning
+- **100% 인터랙티브 TUI** – Bubble Tea로 구현된 아름다운 터미널 인터페이스
+- **즉각적인 검증** – `check`를 실행하면 즉시 정답 여부를 확인
+- **점진적 커리큘럼** – 서로 연계된 15개 이상의 세심하게 설계된 실습
+- **실무 기술** – 기본 image부터 multi-stage build, volume, network, Compose까지
+- **간편한 시작** – clone하고, build하고, 바로 학습 시작
 
 ---
 
-## What you'll master
+## 학습 내용
 
-| Exercise     | You’ll learn                                                                 |
-|--------------|-------------------------------------------------------------------------------|
-| core-01–04   | Running containers, logs, exec, file operations                              |
-| core-05–07   | Writing Dockerfiles, COPY, EXPOSE, ENV, LABEL                                |
-| core-08–09   | Persistent volumes & live-reloading bind mounts                              |
-| core-10–11   | Container networking and port publishing                                     |
-| core-12–14   | Docker Compose, multi-service apps, named volumes, custom networks          |
-| core-15      | Multi-stage builds for tiny, secure production images                        |
+| 실습 | 배우게 될 내용 |
+|--------------|---------------------------------------------------------------------------------|
+| core-01–04   | container 실행, logs, exec, 파일 작업 |
+| core-05–07   | Dockerfile 작성, COPY, EXPOSE, ENV, LABEL |
+| core-08–09   | 영구 volume & 실시간 리로딩 bind mount |
+| core-10–11   | container 네트워킹과 port publishing |
+| core-12–14   | Docker Compose, 다중 서비스 앱, named volume, custom network |
+| core-15      | 작고 안전한 프로덕션 image를 위한 multi-stage build |
 
-## Get started in 30 seconds
+## 30초 만에 시작하기
 
-> You need `go` and `docker` installed.
+> `go`와 `docker`가 설치되어 있어야 합니다.
 
 ```bash
 git clone https://github.com/furkan/dockerlings.git
@@ -37,17 +37,17 @@ go build -o bin/dockerlings ./cmd/dockerlings
 ./bin/dockerlings watch
 ```
 
-Use ↑↓ to navigate • c to check your solution • h for hints • q to quit
+↑↓로 이동 • c로 솔루션 확인 • h로 힌트 보기 • q로 종료
 
-## Test a solution manually (optional)
+## 솔루션 수동 테스트 (선택 사항)
 
 ```bash
 cd exercises/core-01
-bash check.sh   # see detailed feedback
+bash check.sh   # 상세한 피드백 확인
 ```
 
-## Made for
+## 대상
 
-- Beginners who want to understand Docker commands
-- Intermediate devs preparing for real-world container workflows
-- Anyone who learns best by breaking and fixing things
+- Docker 명령어를 이해하고 싶은 초보자
+- 실무 container 워크플로우를 준비하는 중급 개발자
+- 직접 부수고 고치면서 배우는 것을 좋아하는 모든 분

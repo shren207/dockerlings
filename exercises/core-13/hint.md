@@ -1,22 +1,22 @@
-Your `docker-compose.yml` file will now have two top-level keys under `services`. You will also introduce the `build`, `environment`, and `depends_on` keys.
+`docker-compose.yml` 파일은 이제 `services` 아래에 두 개의 최상위 key를 갖습니다. 또한 `build`, `environment`, `depends_on` key를 소개합니다.
 
 ```yaml
 services:
-  # The web application service
+  # 웹 애플리케이션 서비스
   web:
-    # Tells Compose to build an image from the Dockerfile in the 'app' directory
+    # Compose에 'app' 디렉토리의 Dockerfile에서 image를 빌드하도록 지시합니다
     build: ./app
     container_name: c13-web
     ports:
       - "8013:5000"
-    # The app.py script will use this to connect to the redis service
+    # app.py 스크립트가 이것을 사용하여 redis 서비스에 연결합니다
     environment:
       - REDIS_HOST=redis
-    # This ensures the redis service is started before the web service
+    # redis 서비스가 web 서비스보다 먼저 시작되도록 합니다
     depends_on:
       - redis
 
-  # The Redis database service
+  # Redis 데이터베이스 서비스
   redis:
     image: redis:alpine
     container_name: c13-redis

@@ -1,32 +1,32 @@
-A multi-stage build uses multiple `FROM` instructions. Each `FROM` starts a new build stage. You can name stages and copy artifacts from one stage to another.
+multi-stage build는 여러 개의 `FROM` 명령어를 사용합니다. 각 `FROM`은 새로운 빌드 stage를 시작합니다. stage에 이름을 지정하고 한 stage에서 다른 stage로 아티팩트를 복사할 수 있습니다.
 
-Here is the basic structure:
+기본 구조는 다음과 같습니다:
 
 ```Dockerfile
 # --- Build Stage ---
-# Give the stage a name, like "builder"
+# stage에 "builder"와 같은 이름을 지정합니다
 FROM golang:1.21-alpine AS builder
 
-# Set the working directory
+# working directory 설정
 WORKDIR /src
 
-# Copy source and build the static binary
+# 소스 복사 및 static 바이너리 빌드
 COPY app/ .
-# CGO_ENABLED=0 creates a static binary that can run in a minimal image like 'scratch'
+# CGO_ENABLED=0은 'scratch'와 같은 최소 image에서 실행할 수 있는 static 바이너리를 생성합니다
 RUN CGO_ENABLED=0 go build -o /app/server .
 
 
 # --- Final Stage ---
-# Start a new, clean stage from a minimal base image
+# 최소 base image에서 새로운 깨끗한 stage 시작
 FROM scratch
 
-# Copy *only* the compiled binary from the "builder" stage
+# "builder" stage에서 컴파일된 바이너리*만* 복사
 COPY --from=builder /app/server /server
 
-# Expose the application port
+# 애플리케이션 port 노출
 EXPOSE 8080
 
-# Set the command to run the binary
+# 바이너리를 실행하도록 명령 설정
 CMD ["/server"]
 ```
-Using `scratch` results in the smallest possible image, as it's completely empty. `alpine` is another great choice if you need a shell or other basic utilities.
+`scratch`를 사용하면 완전히 비어 있으므로 가능한 가장 작은 image가 됩니다. `alpine`도 shell이나 기타 기본 유틸리티가 필요한 경우 훌륭한 선택입니다.

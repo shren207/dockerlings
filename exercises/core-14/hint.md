@@ -1,11 +1,11 @@
-Your `docker-compose.yml` should now have top-level `volumes` and `networks` keys, in addition to the `services` key.
+`docker-compose.yml`은 이제 `services` key 외에도 최상위 `volumes`와 `networks` key를 가져야 합니다.
 
 ```yaml
-# Define the custom network at the top level
+# 최상위에 커스텀 network 정의
 networks:
   c14-app-net:
 
-# Define the named volume at the top level
+# 최상위에 named volume 정의
 volumes:
   redis-data:
 
@@ -19,18 +19,18 @@ services:
       - REDIS_HOST=redis
     depends_on:
       - redis
-    # Connect this service to the network
+    # 이 서비스를 network에 연결
     networks:
       - c14-app-net
 
   redis:
     image: redis:alpine
     container_name: c14-redis
-    # Mount the named volume
+    # named volume 마운트
     volumes:
       - redis-data:/data
-    # Connect this service to the network
+    # 이 서비스를 network에 연결
     networks:
       - c14-app-net
 ```
-Note: The `redis:alpine` image is configured to automatically save its data to the `/data` directory. By mounting a volume there, we ensure the data persists.
+참고: `redis:alpine` image는 데이터를 `/data` 디렉토리에 자동으로 저장하도록 구성되어 있습니다. 거기에 volume을 마운트하면 데이터가 유지됩니다.
